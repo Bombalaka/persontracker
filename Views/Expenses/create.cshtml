@@ -1,0 +1,32 @@
+
+@model persontracker.Models.Expense
+@{
+    ViewData["Title"] = "create";
+}
+
+<div class="container">
+    <h2>ADD Expense</h2>
+    <form asp-action="create" method="post">
+        <div>
+            <label asp-for="Description" class="form-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Amount" class="form-label"></label>
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Catagory" class="form-label"></label>
+            <input asp-for="Catagory" class="form-control" />
+            <span asp-validation-for="Catagory" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Date" class="form-label"></label>
+            <input asp-for="Date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Expense</button>
+    </form>
+</div>

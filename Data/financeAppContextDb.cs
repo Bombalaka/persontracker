@@ -13,6 +13,6 @@ namespace persontracker.Data
         public FinanceAppContextDb(DbContextOptions<FinanceAppContextDb> options) : base(options)
         {
         }
-        DbSet<Expense> Expenses { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
     }
 }
