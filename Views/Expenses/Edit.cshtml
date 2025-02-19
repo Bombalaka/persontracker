@@ -6,20 +6,32 @@
     <input type="hidden" asp-for="Id" />
 
     <div class="form-group">
-        <label>Description:</label>
-        <input asp-for="Description" class="form-control" required />
+        <label>
+            <input asp-for="Description" class="form-control" required />
+            Description:
+        </label>
+        
     </div>
     <div class="form-group">
-        <label>Amount:</label>
-        <input asp-for="Amount" type="number" class="form-control" required />
+        <label>
+            <input asp-for="Amount" type="number" class="form-control" required />
+            Amount:
+        </label>
+        
     </div>
     <div class="form-group">
-        <label>Category:</label>
-        <input asp-for="Catagory" class="form-control" required />
+        <label>
+            <input asp-for="Catagory" class="form-control" required />
+            Category:
+        </label>
+        
     </div>
     <div class="form-group">
-        <label>Date:</label>
-        <input asp-for="Date" type="date" class="form-control" required />
+        <label>
+            <input asp-for="Date" type="date" class="form-control" required />
+            Date:
+        </label>
+        
     </div>
 
     <button type="submit" class="btn btn-success">💾 Save Changes</button>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("persontracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac46c90e2d570d3bd04605faea93a5a7f6f2f4ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92e36dac571c4db89156043eba66a54a121c06fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("persontracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("persontracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

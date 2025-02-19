@@ -51,6 +51,11 @@ namespace persontracker.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            
             var expense = await _expensesService.GetById(id);
             if (expense == null)
             {
@@ -72,6 +77,10 @@ namespace persontracker.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var expense = await _expensesService.GetById(id);
             if (expense == null)
             {
@@ -82,6 +91,10 @@ namespace persontracker.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var expense = await _expensesService.GetById(id);
             if (expense == null)
             {
