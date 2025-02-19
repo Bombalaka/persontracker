@@ -33,7 +33,7 @@
 
 <h2>Overview</h2>
 <div>
-    <canvas id="myChart"></canvas>
+    <canvas style="max-width: 450ps; max-height: 450px;" id="myChart"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -41,22 +41,30 @@
 <script>
     const ctx = document.getElementById('myChart');
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Expenses',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    fetch('Expenses/GetChart')
+        .then(response => response.json())
+        .then(data => {
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: data.map(d => d.catagory),
+                    datasets: [{
+                        data: data.map(d => d.total),
+                        backgroundColor: [
+                            'red',
+                            'blue',
+                            'green',
+                            'yellow',
+                            'purple',
+                            'orange',
+                            'pink',
+                            'brown',
+                            'grey',
+                            'black'
+                        ]
+                    }]
+                },
+            });
+
+
 </script>
