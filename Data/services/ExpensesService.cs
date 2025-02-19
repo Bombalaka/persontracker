@@ -27,5 +27,18 @@ namespace persontracker.Data.services
             var expenses = await _context.Expenses.ToListAsync();
             return expenses;
         }
+
+        public IQueryable<Expense> GetChartData()
+        {
+            var data = _context.Expenses
+                                .GroupBy(e => e.Catagory)
+                                .Select(e => new Expense
+                                {
+                                    Catagory = e.Key,
+                                    Amount = e.Sum(e => e.Amount)
+                                }); 
+       
+            return data;
+        }
     }
 }
