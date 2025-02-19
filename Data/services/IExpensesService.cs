@@ -10,8 +10,10 @@ namespace persontracker.Data.services
     {
         Task<IEnumerable<Expense>> GetAll();
         Task Add(Expense expense);
-
         List<object> GetChartData();
+        Task<Expense> GetById(int id);
+        Task Update(Expense expense);
+        Task Delete(int id);
         
     }
 }

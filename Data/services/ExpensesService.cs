@@ -38,8 +38,24 @@ namespace persontracker.Data.services
                                     Amount = e.Sum(e => e.Amount)
                                 })
                                 .ToList<object>();
-       
-        return data;
+
+            return data;
+        }
+        public async Task<Expense> GetById(int id)
+        {
+            return await _context.Expenses.FindAsync(id) ?? throw new InvalidOperationException("Expense not found");
+        }
+        public async Task Update(Expense expense)
+        {
+            _context.Expenses.Update(expense);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Delete(int id)
+        {
+            var expense = await GetById(id);
+            _context.Expenses.Remove(expense);
+            await _context.SaveChangesAsync();
         }
     }
 }
