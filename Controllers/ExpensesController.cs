@@ -41,6 +41,7 @@ namespace persontracker.Controllers
             }
             return View(expense);
         }
+        
         public IActionResult Getchart()
         {
             var data = _expensesService.GetChartData();

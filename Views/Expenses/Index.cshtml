@@ -23,7 +23,7 @@
                     <td>@item.Description</td>
                     <td>@item.Amount</td>
                     <td>@item.Catagory</td>
-                    <td>@item.Date.ToString("yyyy-mm-dd")</td>
+                    <td>@item.Date.ToString("yyyy-MM-dd")</td>
 
                 </tr>
             }
@@ -33,15 +33,16 @@
 
 <h2>Overview</h2>
 <div>
-    <canvas style="max-width: 450ps; max-height: 450px;" id="myChart"></canvas>
+    <canvas style="max-width: 450px; max-height: 450px;" id="myChart"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
-    const ctx = document.getElementById('myChart');
 
-    fetch('Expenses/GetChart')
+<script>
+    const ctx = document.getElementById('myChart').getContext("2d");
+
+    fetch('/Expenses/Getchart')
         .then(response => response.json())
         .then(data => {
             new Chart(ctx, {
@@ -49,22 +50,10 @@
                 data: {
                     labels: data.map(d => d.catagory),
                     datasets: [{
-                        data: data.map(d => d.total),
-                        backgroundColor: [
-                            'red',
-                            'blue',
-                            'green',
-                            'yellow',
-                            'purple',
-                            'orange',
-                            'pink',
-                            'brown',
-                            'grey',
-                            'black'
-                        ]
+                        data: data.map(d => d.amount),
                     }]
                 },
             });
-
-
+        });
+        
 </script>

@@ -11,7 +11,7 @@ namespace persontracker.Data.services
         Task<IEnumerable<Expense>> GetAll();
         Task Add(Expense expense);
 
-        IQueryable<Expense> GetChartData();
+        List<object> GetChartData();
         
     }
 }

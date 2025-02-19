@@ -28,7 +28,7 @@ namespace persontracker.Data.services
             return expenses;
         }
 
-        public IQueryable<Expense> GetChartData()
+        public List<object> GetChartData()
         {
             var data = _context.Expenses
                                 .GroupBy(e => e.Catagory)
@@ -36,9 +36,10 @@ namespace persontracker.Data.services
                                 {
                                     Catagory = e.Key,
                                     Amount = e.Sum(e => e.Amount)
-                                }); 
+                                })
+                                .ToList<object>();
        
-            return data;
+        return data;
         }
     }
 }
